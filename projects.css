@@ -1,0 +1,488 @@
+
+/* =========================================
+   PIXEL COVE — SELECTED PROJECTS
+   Unified layout / individual artwork
+========================================= */
+
+/* PROJECT GRID */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.project-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+/* COMMON PREVIEW */
+
+.project-visual {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 320px;
+    min-height: 320px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 13px;
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        filter 0.4s ease;
+}
+
+.project-card:hover .project-visual {
+    transform: translateY(-5px);
+    border-color: rgba(255,77,0,0.45);
+    filter: brightness(1.06);
+}
+
+/* TOP LABELS */
+
+.project-visual .project-topline {
+    position: absolute;
+    top: 21px;
+    left: 22px;
+    right: 22px;
+    z-index: 5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(248,245,240,0.65);
+    font-family: var(--font-main);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+}
+
+.project-visual .project-topline span:last-child {
+    text-align: right;
+}
+
+/* CORNER ARROW */
+
+.project-visual .project-corner {
+    position: absolute;
+    right: 21px;
+    bottom: 18px;
+    z-index: 5;
+
+    color: var(--orange);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-corner {
+    transform: translate(3px, -3px);
+}
+
+/* =========================================
+   PROJECT 01 — RESPONDO
+========================================= */
+
+.project-visual.project-respondo {
+    background:
+        radial-gradient(
+            circle at 50% 53%,
+            rgba(255,77,0,0.19),
+            transparent 38%
+        ),
+        linear-gradient(145deg, #1C1B20, #09090B);
+}
+
+/* Centered artwork area */
+
+.project-visual.project-respondo .respondo-art {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* Rings */
+
+.project-visual.project-respondo .respondo-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border: 1px solid rgba(255,77,0,0.32);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.project-visual.project-respondo .ring-one {
+    width: 145px;
+    height: 145px;
+    transform: translate(-50%, -50%);
+    animation: respondoPulse 4s ease-in-out infinite;
+}
+
+.project-visual.project-respondo .ring-two {
+    width: 195px;
+    height: 195px;
+    border-style: dashed;
+    border-color: rgba(201,203,208,0.22);
+    transform: translate(-50%, -50%);
+    animation: respondoRotate 24s linear infinite;
+}
+
+/* Central R mark */
+
+.project-visual.project-respondo .respondo-core {
+    position: relative;
+    z-index: 2;
+
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 24px;
+
+    background: linear-gradient(145deg, #D8D9DC, #777980);
+    box-shadow:
+        0 0 35px rgba(255,77,0,0.2),
+        inset 0 2px 8px rgba(255,255,255,0.55);
+
+    color: #111114;
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -5px;
+}
+
+.project-visual.project-respondo .respondo-core span {
+    color: var(--orange);
+}
+
+/* Caption */
+
+.project-visual.project-respondo .respondo-caption {
+    position: relative;
+    z-index: 3;
+
+    width: auto;
+    margin: 0;
+    text-align: center;
+
+    color: rgba(248,245,240,0.78);
+    font-family: var(--font-main);
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.7;
+    letter-spacing: 3px;
+}
+
+@keyframes respondoPulse {
+    0%, 100% {
+        opacity: 0.55;
+        scale: 0.95;
+    }
+    50% {
+        opacity: 1;
+        scale: 1.06;
+    }
+}
+
+@keyframes respondoRotate {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* =========================================
+   PROJECT 02 — SMART HOSPITAL
+========================================= */
+
+.project-visual.project-hospital {
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(75,139,220,0.22),
+            transparent 42%
+        ),
+        linear-gradient(145deg, #1A1D26, #090A0E);
+}
+
+.project-visual.project-hospital .hospital-art {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    text-align: center;
+}
+
+.project-visual.project-hospital .hospital-symbol {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(102,169,255,0.55);
+    border-radius: 22px;
+
+    background: rgba(102,169,255,0.08);
+    box-shadow: 0 0 35px rgba(102,169,255,0.13);
+
+    color: #83B9FF;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.project-visual.project-hospital .hospital-title {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: clamp(25px, 3vw, 37px);
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.project-visual.project-hospital .hospital-title span {
+    color: #83B9FF;
+}
+
+.project-visual.project-hospital .hospital-caption {
+    color: rgba(248,245,240,0.65);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.project-visual.project-hospital .hospital-orbit {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    border: 1px solid rgba(102,169,255,0.14);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* =========================================
+   PROJECT 03 — AURA
+========================================= */
+
+.project-visual.project-aura {
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(218,143,166,0.2),
+            transparent 43%
+        ),
+        linear-gradient(145deg, #291D23, #100C10);
+}
+
+.project-visual.project-aura .aura-art {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    text-align: center;
+}
+
+.project-visual.project-aura .aura-decoration {
+    position: absolute;
+    width: 185px;
+    height: 185px;
+
+    border: 1px solid rgba(241,215,222,0.25);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 35px rgba(225,135,164,0.1),
+        inset 0 0 35px rgba(225,135,164,0.06);
+
+    pointer-events: none;
+}
+
+.project-visual.project-aura .aura-title {
+    position: relative;
+    color: #F1D7DE;
+
+    font-family: var(--font-heading);
+    font-size: clamp(43px, 5vw, 65px);
+    font-weight: 500;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+.project-visual.project-aura .aura-title span {
+    color: #D99BAF;
+}
+
+.project-visual.project-aura .aura-caption {
+    position: relative;
+    max-width: 85%;
+
+    color: rgba(241,215,222,0.7);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   PROJECT DETAILS
+========================================= */
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+
+    min-height: 100px;
+    margin-top: 21px;
+    padding: 0 2px;
+}
+
+.project-info > div {
+    min-width: 0;
+}
+
+.project-info h3 {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-info h3 {
+    color: var(--orange-light);
+}
+
+.project-info p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.project-type {
+    flex-shrink: 0;
+    margin-top: 4px;
+
+    color: var(--orange);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-align: right;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 20px;
+    }
+
+    .project-visual {
+        height: 300px;
+        min-height: 300px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+    .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    .project-visual {
+        height: 300px;
+        min-height: 300px;
+    }
+
+    .project-info {
+        min-height: auto;
+        padding-bottom: 5px;
+    }
+
+    .project-info h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    .project-visual .project-topline {
+        left: 15px;
+        right: 15px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .project-info {
+        flex-direction: column;
+        gap: 9px;
+    }
+
+    .project-type {
+        text-align: left;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-visual.project-respondo .respondo-ring,
+    .project-card,
+    .project-visual,
+    .project-info h3 {
+        animation: none !important;
+        transition: none !important;
+    }
+}
